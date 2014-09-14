@@ -1,0 +1,21 @@
+{
+    "name": "healthcheck",
+    "description": "Checks Health",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node healthcheck",
+        "test": "./node_modules/mocha/bin/mocha -R xunit | grep \"<\" > test-reports.xml"
+    },
+    "dependencies": {
+        "superagent": "*",
+        "node-redis-pubsub-fork": "*",
+        "cron": "*",
+        "mongojs": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "assert": "*",
+        "restify": "*"
+    }
+}
