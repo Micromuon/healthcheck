@@ -21,6 +21,12 @@ describe('test healthCheck: ', function(){
 
     it('returns correct response when healthy service submitted', function(done){
         this.timeout(30000);
+        pubsubChannel.on("healthcheck:submitResult", function(data){
+            console.log("******************");
+            console.log(data);
+            console.log("******************");
+
+        });
         pubsubChannel.once("healthcheck:passed", function(data){
             console.log(data);
             // Check returning expected data

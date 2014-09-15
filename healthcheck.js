@@ -10,6 +10,8 @@ var cronJobs = {};
 
 pubsubChannel = new RPS({ scope: "messages" });
 
+pubsubChannel.emit("healthcheck:bootSuccess", {message: "booted"});
+
 pubsubChannel.on("healthcheck:submit", function(data) {
     console.log("New healthcheck created for " + data.name + " querying " + data.localURL + " with expectation " + data.expectedResBody);
     
