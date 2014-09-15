@@ -22,10 +22,10 @@ pubsubChannel.on("healthcheck:submit", function(data) {
                           }, function(err, saved) {
       if( err || !saved ) {
           console.log("Service to be checked NOT saved in Healthcheck DataBase");
+          data.failed = "true";
           pubsubChannel.emit("healthcheck:submitResult", data);
       } else {
           console.log("Service saved in Healthcheck DataBase");
-          data.failed = "true";
           pubsubChannel.emit("healthcheck:submitResult", data);
       }
     });
