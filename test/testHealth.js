@@ -7,9 +7,9 @@ var assert = require("assert"),
 var db = require("mongojs").connect("healthcheckDB", ["currentServices"]);
 var timers = require("timers");
 
-//after(function(){
-//    db.currentServices.drop();
-//});
+after(function(){
+    db.currentServices.drop();
+});
 
 var pubsubChannel = new RPS({ scope: "messages" });
 
